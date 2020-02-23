@@ -10,7 +10,7 @@ routerImagenes.post('/img/noticia/:id', (req: any, res: Response) => {
     console.log(file);
     res.status(201).json({
         ok: true,
-        message: 'La imagen se subio correctamente'
+        message: `La imagen se subio correctamente, su id es ${id}`
     });
 });
 
