@@ -27,7 +27,7 @@ process.env.CADUCIDAD_TOKEN = '48h';
 //=================================
 
 export const SEED: Secret = process.env.SEED || 'este-es-el-seed-de-desarrollo';
-export const DB_HOST = process.env.DBHOST || 'localhost';
-export const DB_NAME = process.env.DBNAME || 'petly';
-export const DB_USERNAME = process.env.USERNAME || 'root';
-export const DB_PASSWORD = process.env.PASSWORD || '';
+export const DB_HOST = process.env.DB_HOST || 'localhost';
+export const DB_NAME = process.env.DB_NAME || 'petly';
+export const DB_USERNAME = process.env.DB_USERNAME || 'root';
+export const DB_PASSWORD = process.env.DB_PASSWORD || '';
