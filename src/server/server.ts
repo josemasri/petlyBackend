@@ -5,7 +5,7 @@ import path = require('path');
 export default class Server {
     private static _instance: Server;
     app: express.Application;
-    port = 3000;
+    port = process.env.PORT || 3000;
 
     private constructor() {
         this.app = express();
