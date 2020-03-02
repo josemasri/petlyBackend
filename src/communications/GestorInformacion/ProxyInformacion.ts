@@ -21,12 +21,14 @@ export default class ProxyInformacion {
         });
     }
 
-    public static obtenerNoticiasBD(callback: Function) {
+    public static actualizarImagenBD(id: number, ext: string, table: string, callback: Function) {
         const query = `
-            SELECT * FROM noticias;
+            UPDATE ?? SET img = ? WHERE id = ?;
         `;
 
-        MySQL.instance.conn.query(query, (err, results: Object[], fields) => {
+        const img = `${id}.${ext}`;
+
+        MySQL.instance.conn.query(query, [table, img, id], (err, results: Object[], fields) => {
             if (err) {
                 console.log('Error en query');
                 return callback(err);
@@ -38,19 +40,21 @@ export default class ProxyInformacion {
         });
     }
 
-    public static obtenerNoticiaBD(id: number, callback: Function) {
+    public static obtenerNoticiasBD(page: number, callback: Function) {
+        const fromRegister = page * 3;
+        console.log(fromRegister);
         const query = `
-            SELECT * FROM noticias
-            WHERE id = ?;
+            SELECT * FROM noticias 
+            LIMIT ?,3;
         `;
 
-        MySQL.instance.conn.query(query, id, (err, results: Object[], fields) => {
+        MySQL.instance.conn.query(query, fromRegister, (err, results: Object[], fields) => {
             if (err) {
                 console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
-                return callback('La noticia solicitada no existe');
+                return callback('El registro solicitado no existe');
             }
             callback(null, results);
         });
@@ -86,6 +90,47 @@ export default class ProxyInformacion {
             }
             if (results.length === 0) {
                 return callback('El registro solicitado no existe');
+            }
+            callback(null, results);
+        });
+    }
+
+    // =====================
+    //  Galería
+    // =====================
+    public static agregarImagenGaleriaBD(titulo: string, idAutor: number, callback: Function) {
+        const query = `
+            INSERT INTO galeriaImagenes SET titulo = ?, autor = ?;
+        `;
+        MySQL.instance.conn.query(query, [titulo, idAutor], (err, results: Object[], fields) => {
+            if (err) {
+                console.log('Error en query');
+                return callback(err);
+            }
+            if (results.length === 0) {
+                return callback('El registro solicitado no existe');
+            }
+            callback(null, results);
+        });
+    }
+
+
+    public static obtenerGaleriaBD(page: number, limit: number, callback: Function) {
+        const fromRegister = page * limit;
+        
+        const query = `
+            SELECT g.*, u.nombre, u.apellidoPaterno 
+            FROM galeriaImagenes g INNER JOIN usuarios u ON g.autor = u.id
+            LIMIT ?,?;
+        `;
+
+        MySQL.instance.conn.query(query, [fromRegister, limit], (err, results: Object[], fields) => {
+            if (err) {
+                console.log('Error en query');
+                return callback(err);
+            }
+            if (results.length === 0) {
+                return callback('No hay imágenes en la galería');
             }
             callback(null, results);
         });

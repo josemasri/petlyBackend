@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "html": "copyfiles --up 1 src/public/*.html dist",
+    "html": "copyfiles --up 1 src/public/*.html src/public/img dist",
     "build": "npm run html && tsc"
   },
   "author": "",
@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6",
     "jsonwebtoken": "^8.5.1",
+    "mercadopago": "^1.3.1",
     "mysql": "github:mysqljs/mysql",
     "typescript": "^3.8.2"
   },

@@ -31,3 +31,8 @@ export const DB_HOST = process.env.DB_HOST || 'localhost';
 export const DB_NAME = process.env.DB_NAME || 'petly';
 export const DB_USERNAME = process.env.DB_USERNAME || 'root';
 export const DB_PASSWORD = process.env.DB_PASSWORD || '';
+
+
+// Back url donación
+export const BACK_URL = process.env.BACK_URL || 'http://localhost:4200';
+export const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';

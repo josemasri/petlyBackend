@@ -21,6 +21,15 @@ export default class GestorCuentas {
         });
     }
 
+    private static generaToken(usuario: Usuario) {
+        return jwt.sign({ usuario }, SEED, { expiresIn: process.env.CADUCIDAD_TOKEN });
+    }
+
+    public static renuevaToken(usuario: Usuario, callback: Function) {
+        const token = this.generaToken(usuario);
+        callback(null, 'Token renovado correctamente', token);
+    }
+
     public static loginUsuario(email: string, password: string, callback: Function) {
         ProxyCuentas.obtenerUsuarioBD(email, (err: any, results: any[]) => {
             if (err) {
@@ -33,15 +42,44 @@ export default class GestorCuentas {
             }
             results[0].password = null;
             // Genrar token de usuario
-            const token = jwt.sign(
-                {
-                  usuario: results[0]
-                },
-                SEED,
-                { expiresIn: process.env.CADUCIDAD_TOKEN }
-              );
-            return callback(null, 'El usuario existe', token);
+            const token = this.generaToken(results[0]);
+            return callback(null, 'El usuario existe', results[0], token, this.obtenerMenu(results[0].rol));
         });
+    }
+
+    // ===================================
+    // Obtener Menu de navegacion panel
+    // ===================================
+    private static obtenerMenu(rol: string) {
+
+        var menu = [{
+                titulo: 'Principal',
+                icono: 'mdi mdi-gauge',
+                submenu: [
+                    { titulo: 'Dashboard', url: '/dashboard' },
+                    { titulo: 'ProgressBar', url: '/progress' },
+                    { titulo: 'Gráficas', url: '/graficas1' },
+                    { titulo: 'Promesas', url: '/promesas' },
+                    { titulo: 'RxJs', url: '/rxjs' }
+                ]
+            },
+            {
+                titulo: 'Mantenimientos',
+                icono: 'mdi mdi-folder-lock-open',
+                submenu: [
+                    { titulo: 'Hospitales', url: '/hospitales' },
+                    { titulo: 'Médicos', url: '/medicos' }
+                ]
+            }
+        ];
+    
+        if (rol === 'ADMIN_ROLE') {
+            menu[1].submenu.unshift({ titulo: 'Usuarios', url: '/usuarios' });
+        }
+    
+    
+        return menu;
+    
     }
 
 

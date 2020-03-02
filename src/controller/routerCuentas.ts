@@ -3,9 +3,28 @@ import { Router, Request, Response } from 'express';
 import GestorCuentas from '../model/GestorCuentas/GestorCuentas';
 import Usuario from '../model/GestorCuentas/Usuario';
 import { verificaAdminRole, verificaToken } from '../middlewares/autenticacion';
+import { SEED } from '../config/config';
 
 
 const routerCuentas = Router();
+
+// ==========================================
+//  Renueva Token
+// ==========================================
+routerCuentas.get('/renuevatoken', verificaToken, (req: any, res: Response) => {
+    GestorCuentas.renuevaToken(req.usuario, (err: any, message: string, token: any) => {
+        if (err) {
+            res.status(500).json({
+                ok: false,
+                err
+            });
+        }
+        res.status(200).json({
+            ok: true,
+            token
+        })
+    });
+});
 
 //  ===========================
 //  Registro Usuario
@@ -140,7 +159,7 @@ routerCuentas.post('/login', (req: Request, res: Response) => {
         });
     }
 
-    GestorCuentas.loginUsuario(body.email, body.password, (err:any, message: string, token: any)=> {
+    GestorCuentas.loginUsuario(body.email, body.password, (err: any, message: string, usuario: any, token: any, menu: any) => {
         if (err) {
             return res.status(403).json({
                 ok: false,
@@ -150,7 +169,9 @@ routerCuentas.post('/login', (req: Request, res: Response) => {
         }
         res.status(200).json({
             ok: true,
-            token
+            usuario,
+            token,
+            menu
         });
     });
 });
@@ -160,7 +181,7 @@ routerCuentas.post('/login', (req: Request, res: Response) => {
 // ============================
 
 routerCuentas.get('/veterinarios', [verificaToken, verificaAdminRole], (req: Request, res: Response) => {
-    GestorCuentas.obtenerVeterinarios((err:any, message: string, results: Object[])=> {
+    GestorCuentas.obtenerVeterinarios((err: any, message: string, results: Object[]) => {
         if (err) {
             return res.status(403).json({
                 ok: false,
@@ -174,4 +195,11 @@ routerCuentas.get('/veterinarios', [verificaToken, verificaAdminRole], (req: Req
         });
     });
 });
+
+
+
+
+
+
+
 export default routerCuentas;
