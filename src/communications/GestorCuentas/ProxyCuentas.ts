@@ -8,7 +8,6 @@ export default class ProxyCuentas {
         `;
         MySQL.instance.conn.query(query, usuario, (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
@@ -25,7 +24,6 @@ export default class ProxyCuentas {
         `;
         MySQL.instance.conn.query(query, email, (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
@@ -42,7 +40,6 @@ export default class ProxyCuentas {
         `;
         MySQL.instance.conn.query(query, 'VET_ROLE', (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {

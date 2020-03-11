@@ -112,8 +112,6 @@ routerInformacion.post('/albergues', [verificaToken, verificaAdminRole], (req: a
         });
     }
 
-    console.log(req.files);
-
     if (!req.files.img) {
         res.status(400).json({
             ok: false,
@@ -186,7 +184,7 @@ routerInformacion.post('/galeria', [verificaToken, verificaAdminRole], (req: any
 
 routerInformacion.get('/galeria', (req: any, res: Response) => {
     const page = Number(req.params.page) || 0;
-    const limit = Number(req.params.limit) || 3;
+    const limit = Number(req.params.limit) || 6;
 
     GestorInformacion.obtenerGaleria(page, limit, (err: any, message: string, results: Object[]) => {
         if (err) {
@@ -199,6 +197,29 @@ routerInformacion.get('/galeria', (req: any, res: Response) => {
         res.status(201).json({
             ok: true,
             results
+        });
+    });
+});
+
+
+
+// ===============================
+//  Respuestas del chat
+// ===============================
+routerInformacion.post('/chat', (req: Request, res: Response) => {
+    const message = req.body.message;
+    GestorInformacion.obtenerResMensaje(message, (err: any, resMessage: string) => {
+        if(err) {
+            return res.status(500).json({
+                ok: false,
+                err
+            });
+        }
+        res.status(200).json({
+            ok: true,
+            message: resMessage,
+            date: new Date(),
+            from: 'Petly'
         });
     });
 });

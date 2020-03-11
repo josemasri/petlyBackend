@@ -91,7 +91,6 @@ export default class GestorCuentas {
             results.forEach(veterinario => {
                 veterinario.password = null;
             });
-            console.log(results);
             return callback(null, 'El usuario existe', results);
         });
     }

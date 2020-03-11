@@ -9,7 +9,6 @@ const routerDonaciones = Router();
 routerDonaciones.post('/donaciones', (req: Request, res: Response) => {
     const body = req.body;
     // Validando datos
-    console.log(mercadopago);
     if (!(body.nombre && body.apellidoPaterno && body.cantidad && body.email)) {
         return res.status(401).json({
             ok: false,

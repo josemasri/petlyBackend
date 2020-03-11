@@ -11,7 +11,6 @@ export default class ProxyInformacion {
 
         MySQL.instance.conn.query(query, noticia, (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
@@ -30,7 +29,6 @@ export default class ProxyInformacion {
 
         MySQL.instance.conn.query(query, [table, img, id], (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
@@ -42,7 +40,6 @@ export default class ProxyInformacion {
 
     public static obtenerNoticiasBD(page: number, callback: Function) {
         const fromRegister = page * 3;
-        console.log(fromRegister);
         const query = `
             SELECT * FROM noticias 
             LIMIT ?,3;
@@ -50,7 +47,6 @@ export default class ProxyInformacion {
 
         MySQL.instance.conn.query(query, fromRegister, (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
@@ -68,7 +64,6 @@ export default class ProxyInformacion {
 
         MySQL.instance.conn.query(query, albergue, (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
@@ -85,7 +80,6 @@ export default class ProxyInformacion {
 
         MySQL.instance.conn.query(query, (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
@@ -104,7 +98,6 @@ export default class ProxyInformacion {
         `;
         MySQL.instance.conn.query(query, [titulo, idAutor], (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
@@ -126,7 +119,6 @@ export default class ProxyInformacion {
 
         MySQL.instance.conn.query(query, [fromRegister, limit], (err, results: Object[], fields) => {
             if (err) {
-                console.log('Error en query');
                 return callback(err);
             }
             if (results.length === 0) {
