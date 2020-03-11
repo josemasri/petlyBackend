@@ -25,6 +25,28 @@ routerAnimales.get('/perro', [verificaToken], (req: Request, res: Response) => {
     });
 });
 
+
+
+// ==================
+// Obtener Perro por ID
+// ==================
+routerAnimales.get('/perro/:id', (req: Request, res: Response) => {
+    const id = req.params.id;
+    GestorAnimales.obtenerPerro(id, (err: any, perro: any) => {
+        if(err) {
+            res.status(500).json({
+                ok: false,
+                err
+            });
+        }
+        res.json({
+            ok: true,
+            perro
+        });
+    });
+});
+
+
 // Agregar Perro
 routerAnimales.post('/perro', [verificaToken, verificaAdminRole], (req: any, res: Response) => {
     const body = req.body;

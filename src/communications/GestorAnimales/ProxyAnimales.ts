@@ -80,4 +80,22 @@ export default class ProxyAnimales {
             callback(null, results);
         });
     }
+
+
+    public static obtenerPerroBD(id: string | number, callback: Function) {
+        const query = `
+            SELECT * FROM perros 
+            JOIN animales ON perros.idAnimal = animales.id
+            WHERE perros.idAnimal = ?;
+        `;
+        MySQL.instance.conn.query(query, id, (err, results: Object[], fields) => {
+            if (err) {
+                return callback(err);
+            }
+            if (results.length === 0) {
+                return callback('No hay perros disponibles');
+            }
+            callback(null, results[0]);
+        });
+    }
 }
