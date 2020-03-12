@@ -13,7 +13,7 @@ const routerAnimales = Router();
 routerAnimales.get('/perro', [verificaToken], (req: Request, res: Response) => {
     GestorAnimales.obtenerPerros((err: any, perros: any) => {
         if(err) {
-            res.status(500).json({
+            return res.status(500).json({
                 ok: false,
                 err
             });
@@ -34,7 +34,7 @@ routerAnimales.get('/perro/:id', (req: Request, res: Response) => {
     const id = req.params.id;
     GestorAnimales.obtenerPerro(id, (err: any, perro: any) => {
         if(err) {
-            res.status(500).json({
+            return res.status(500).json({
                 ok: false,
                 err
             });

@@ -23,7 +23,7 @@ export default class GestorAnimales {
                         return callback(err3);
                     }
                     // Generar código QR
-                    this.generarCodigoQRAnimal(`perro.${idAnimal}`, (err4: any, results4: any) => {
+                    this.generarCodigoQRAnimal(`${idAnimal}`, 'perro', (err4: any, results4: any) => {
                         if (err4) {
                             return callback(err4);
                         }
@@ -55,8 +55,8 @@ export default class GestorAnimales {
     }
 
 
-    private static generarCodigoQRAnimal(id: number | string, callback: Function) {
-        QRCode.toDataURL(`${id}`, function (err, url) {
+    private static generarCodigoQRAnimal(id: number | string, tipo: string, callback: Function) {
+        QRCode.toDataURL(`${id}.${tipo}`, function (err, url) {
             if (err) {
                 return callback(err);
             }

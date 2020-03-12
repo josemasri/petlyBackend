@@ -43,7 +43,7 @@ export default class ProxyAnimales {
                     return callback('El registro solicitado no existe');
                 }
                 // El perro se agrego 
-                callback(null, idAnimal, results2);
+                return callback(null, idAnimal, results2);
             });
         });
     }
@@ -61,7 +61,7 @@ export default class ProxyAnimales {
                 return callback('El registro solicitado no existe');
             }
             // El perro se agrego 
-            callback(null, results);
+            return callback(null, results);
         });
     }
 
@@ -77,7 +77,7 @@ export default class ProxyAnimales {
             if (results.length === 0) {
                 return callback('No hay perros disponibles');
             }
-            callback(null, results);
+            return callback(null, results);
         });
     }
 

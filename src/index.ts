@@ -7,7 +7,6 @@ import bodyParser from 'body-parser';
 import routerCuentas from './controller/routerCuentas';
 import routerDonaciones from './controller/routerDonaciones';
 import fileUpload from 'express-fileupload';
-import GestorAnimales from './model/GestorAnimales/GestorAnimales';
 import routerAnimales from './controller/routerAnimales';
 
 const server = Server.instance;
