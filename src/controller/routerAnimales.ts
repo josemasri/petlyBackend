@@ -1,3 +1,10 @@
+/** routerAnimales.ts
+ * Este archivo sirve para recibir las peticiones HTTP
+ * correspondientes a las funcionalidades del gestor de 
+ * animales y delegar las peticiones al gestor 
+ * correspondiente para regresar una respuesta al cliente
+ */
+
 import { Router, Request, Response } from 'express';
 import FabricaPerros from '../services/FabricaAnimales/FabricaPerros';
 import GestorAnimales from '../model/GestorAnimales/GestorAnimales';
@@ -46,8 +53,9 @@ routerAnimales.get('/perro/:id', (req: Request, res: Response) => {
     });
 });
 
-
+// ================
 // Agregar Perro
+// ================
 routerAnimales.post('/perro', [verificaToken, verificaAdminRole], (req: any, res: Response) => {
     const body = req.body;
     // Validando datos

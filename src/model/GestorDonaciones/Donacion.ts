@@ -1,3 +1,9 @@
+/** Usuario.ts
+ * Clase Usuario
+ * Contiene todos los atributos
+ * y métodos de un Usuario
+ */
+
 export default class Donacion {
     constructor(
         private nombre: string,

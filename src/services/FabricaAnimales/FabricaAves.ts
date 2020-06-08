@@ -1,3 +1,8 @@
+/** FabricaAves.ts
+ * Interfaz concreta
+ * que crea objetos
+ * de la clase Ave
+ */
 import FabricaAbstractaAnimales from './FabricaAbstractaAnimales';
 import Animal from '../../model/GestorAnimales/Animal';
 import Ave from '../../model/GestorAnimales/Ave';

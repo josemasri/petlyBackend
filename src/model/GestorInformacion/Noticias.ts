@@ -1,3 +1,7 @@
+/** Noticias.ts
+ * Clase Noticias
+ * Contenedor de Noticas
+ */
 import Noticia from './Noticia';
 export default class Noticias {
     constructor(

@@ -1,3 +1,10 @@
+/** autenticacion.ts 
+ * Este archivo contiene las funciones que se ejecutan
+ * para verificar los roles de cada usuario con el token
+ * de autenticación, estas se utilizan en los controladores
+ * de rutas protegidas
+ */
+
 import { Response, Request, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { SEED } from '../config/config';

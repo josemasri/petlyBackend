@@ -1,3 +1,10 @@
+/** GestorAnimales.ts 
+ * Clase estatica que contiene todos 
+ * los atributos 
+ * y métodos correspondientes
+ * a las funcionalidades
+ *  del gestor de animales 
+ */
 import QRCode from 'qrcode';
 import fs from 'fs';
 import ProxyAnimales from '../../communications/GestorAnimales/ProxyAnimales';

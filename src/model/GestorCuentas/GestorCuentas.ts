@@ -1,3 +1,10 @@
+/** GestorCuentas.ts 
+ * Clase estatica que contiene todos 
+ * los atributos 
+ * y métodos correspondientes
+ * a las funcionalidades
+ *  del gestor de cuentas 
+ */
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 

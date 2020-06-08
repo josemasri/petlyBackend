@@ -1,3 +1,8 @@
+/** FabricaPerros.ts
+ * Interfaz concreta
+ * que crea objetos
+ * de la clase Perro
+ */
 import FabricaAbstractaAnimales from './FabricaAbstractaAnimales';
 import Animal from '../../model/GestorAnimales/Animal';
 import Perro from '../../model/GestorAnimales/Perro';

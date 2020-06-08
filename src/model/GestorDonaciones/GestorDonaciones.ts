@@ -1,3 +1,9 @@
+/** GestorDonaciones.ts 
+ * Clase estatica que contiene todos 
+ * los métodos correspondientes
+ * a las funcionalidades
+ *  del gestor de Donaciones 
+ */
 import Donacion from './Donacion';
 import ProxyDonaciones from '../../communications/GestorDonaciones/ProxyDonaciones';
 export default class GestorDonaciones {

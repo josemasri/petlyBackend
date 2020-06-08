@@ -1,3 +1,9 @@
+/** Reptil.ts
+ * Clase Reptil
+ * Contiene todos los atributos
+ * y métodos de un Reptil
+ */
+
 import Animal from './Animal';
 
 export default class Reptil extends Animal {

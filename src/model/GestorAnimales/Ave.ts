@@ -1,3 +1,9 @@
+/** Ave.ts
+ * Clase Ave
+ * Contiene todos los atributos
+ * y métodos de un ave
+ */
+
 import Animal from './Animal';
 
 export default class Ave extends Animal {

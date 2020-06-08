@@ -1,3 +1,9 @@
+/** config.ts
+ * Este archivo contiene todas las configuraciones 
+ * necesarias para el despliegue.
+ */
+
+ 
 // ================================
 // Puerto
 //=================================

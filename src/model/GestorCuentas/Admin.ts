@@ -1,3 +1,9 @@
+/** Administrados.ts
+ * Clase Administrados
+ * Contiene todos los atributos
+ * y métodos de un Administrados
+ */
+
 export default class Admin {
     constructor(
         private _id: number,

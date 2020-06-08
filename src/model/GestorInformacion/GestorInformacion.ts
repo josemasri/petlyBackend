@@ -1,4 +1,9 @@
-
+/** GestorInformacion.ts 
+ * Clase estatica que contiene todos 
+ * los métodos correspondientes
+ * a las funcionalidades
+ *  del gestor de Donaciones 
+ */
 import Noticia from './Noticia';
 import ProxyInformacion from '../../communications/GestorInformacion/ProxyInformacion';
 import Albergue from './Albergue';

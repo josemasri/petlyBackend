@@ -1,16 +1,23 @@
+/** routerInformacion.ts
+ * Este archivo sirve para recibir las peticiones HTTP
+ * correspondientes a las funcionalidades del gestor de 
+ * Informacion y delegar las peticiones al gestor 
+ * correspondiente para regresar una respuesta al cliente
+ */
+
 import { verificaToken } from './../middlewares/autenticacion';
 import { Router, Request, Response } from 'express';
 import Noticia from '../model/GestorInformacion/Noticia';
 import GestorInformacion from '../model/GestorInformacion/GestorInformacion';
 import { verificaAdminRole } from '../middlewares/autenticacion';
 import Albergue from '../model/GestorInformacion/Albergue';
-import * as fileUpload from 'express-fileupload';
 
 
 const routerInformacion = Router();
 
-
+// ===========================
 // Obtener todas las noticias
+// ===========================
 routerInformacion.get('/noticias', (req: Request, res: Response) => {
     const page = Number(req.params.page) || 0;
     GestorInformacion.obtenerNoticias(page, (err: any, message: string, results: Object[]) => {

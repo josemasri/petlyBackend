@@ -1,3 +1,8 @@
+/** FabricaPeces.ts
+ * Interfaz concreta
+ * que crea objetos
+ * de la clase Pes
+ */
 import FabricaAbstractaAnimales from './FabricaAbstractaAnimales';
 import Animal from '../../model/GestorAnimales/Animal';
 import Pes from '../../model/GestorAnimales/Pes';

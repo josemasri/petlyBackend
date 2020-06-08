@@ -1,3 +1,10 @@
+/** Gato.ts
+ * Clase Gato
+ * Contiene todos los atributos
+ * y métodos de un Gato
+ */
+
+
 import Animal from './Animal';
 
 export default class Gato extends Animal {

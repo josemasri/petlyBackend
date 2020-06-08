@@ -1,3 +1,8 @@
+/** FabricaRoedores.ts
+ * Interfaz concreta
+ * que crea objetos
+ * de la clase Roedor
+ */
 import FabricaAbstractaAnimales from './FabricaAbstractaAnimales';
 import Animal from '../../model/GestorAnimales/Animal';
 import Roedor from '../../model/GestorAnimales/Roedor';

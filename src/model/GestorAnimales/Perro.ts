@@ -1,3 +1,9 @@
+/** Perro.ts
+ * Clase Perro
+ * Contiene todos los atributos
+ * y métodos de un Perro
+ */
+
 import Animal from './Animal';
 
 export default class Perro extends Animal {

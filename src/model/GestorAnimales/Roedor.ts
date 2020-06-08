@@ -1,3 +1,9 @@
+/** Roedor.ts
+ * Clase Roedor
+ * Contiene todos los atributos
+ * y métodos de un Roedor
+ */
+
 import Animal from './Animal';
 
 export default class Roedor extends Animal {

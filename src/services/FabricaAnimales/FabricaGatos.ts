@@ -1,3 +1,9 @@
+/** FabricaGatos.ts
+ * Interfaz concreta
+ * que crea objetos
+ * de la clase Gato
+ */
+
 import FabricaAbstractaAnimales from './FabricaAbstractaAnimales';
 import Animal from '../../model/GestorAnimales/Animal';
 import Gato from '../../model/GestorAnimales/Gato';

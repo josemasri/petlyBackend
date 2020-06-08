@@ -1,3 +1,9 @@
+/** Pes.ts
+ * Clase Pes
+ * Contiene todos los atributos
+ * y métodos de un Pes
+ */
+
 import Animal from './Animal';
 
 export default class Pes extends Animal {

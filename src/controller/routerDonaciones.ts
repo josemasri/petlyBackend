@@ -1,3 +1,10 @@
+/** routerDonaciones.ts
+ * Este archivo sirve para recibir las peticiones HTTP
+ * correspondientes a las funcionalidades del gestor de 
+ * donaciones y delegar las peticiones al gestor 
+ * correspondiente para regresar una respuesta al cliente
+ */
+
 import { Router, Request, Response } from 'express';
 import Donacion from '../model/GestorDonaciones/Donacion';
 import GestorDonaciones from '../model/GestorDonaciones/GestorDonaciones';
