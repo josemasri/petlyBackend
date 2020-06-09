@@ -1,3 +1,10 @@
+/** mysql.ts
+ * Clase que gestiona la conexion a
+ * una base de datos mysql. Usa el 
+ * patron singleton para tener una
+ * sola instancia.
+ */
+
 import { DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME } from '../config/config';
 import mysql = require('mysql');
 

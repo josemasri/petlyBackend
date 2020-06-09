@@ -1,3 +1,10 @@
+/** ProxyInformacion.ts
+ * Clase estatica que contiene todos
+ * los metodos relacionados con
+ * interacciones a la base de datos
+ * relacionados con el gestor de Informacion
+ */
+
 import MySQL from '../mysql';
 import Noticia from '../../model/GestorInformacion/Noticia';
 import Albergue from '../../model/GestorInformacion/Albergue';

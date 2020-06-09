@@ -1,3 +1,10 @@
+/** ProxyDoncaiones.ts
+ * Clase estatica que contiene todos
+ * los metodos relacionados con
+ * interacciones a la base de datos
+ * relacionados con el gestor de doncaiones
+ */
+
 
 import MySQL from '../mysql';
 import Donacion from '../../model/GestorDonaciones/Donacion';

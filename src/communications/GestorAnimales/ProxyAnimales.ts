@@ -1,3 +1,9 @@
+/** ProxyAnimales.ts
+ * Clase estatica que contiene todos
+ * los metodos relacionados con
+ * interacciones a la base de datos
+ * relacionados con el gestor de animales
+ */
 
 import MySQL from '../mysql';
 
